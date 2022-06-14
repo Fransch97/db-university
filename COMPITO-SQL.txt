@@ -10,6 +10,11 @@ SELECT *
 FROM `students`
 WHERE `date_of_birth` LIKE '1990%';
 
+1.c.
+1.b.
+SELECT * 
+FROM `students`
+WHERE YEAR(`date_of_birth`) = '1990';
 
 
 
@@ -23,30 +28,44 @@ WHERE `cfu`> 10;
 
 
 3.Selezionare tutti gli studenti che hanno più di 30 anni
-3.
+3.a.
 SELECT * 
 FROM `students`
 WHERE `date_of_birth` <= '1992-06-14' 
 ORDER BY `date_of_birth` DESC; 
-
+3.b.
+SELECT * 
+FROM `students` 
+WHERE YEAR(CURRENT_DATE()) - YEAR(`date_of_birth`) >= 30
+3.c.
+SELECT * 
+FROM `students` 
+  WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURRENT_DATE()) >= 30; 
 
 
 
 4.Selezionare tutti i corsi delprimo semestre del primo anndo di un qualsisi corso di laurea
-4.
+4.a.
 SELECT *
 FROM `courses` 
 WHERE `period` = 'I semestre' AND `year` = 1
+4.b.
+SELECT *
+FROM `courses` 
+WHERE `year` = 1 AND `period` LIKE 'I %';
 
 
 
 
 5.Selezionare tutti gli appell d'esame che avvengono nel pomeriggio (dopo le 14) del 20/06/2020.
-5.
+5.a.
 SELECT * 
 FROM `exams` 
 WHERE `date` = '2020-06-20' AND `hour` > '14:00:00'
-
+5.b.
+SELECT *
+FROM `exams` 
+WHERE `date` = '2020-06-20' AND TIME(`hour`) > '14:00:00';
 
 
 6.Selezionare tutti i corsi di laurea magistrale
