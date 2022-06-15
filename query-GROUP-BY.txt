@@ -1,0 +1,25 @@
+1.
+SELECT COUNT(*) AS `tot_iscritti`,   YEAR(`students`.`enrolment_date`) AS `anno`
+FROM `students`
+GROUP BY `anno`;
+
+
+
+2.
+SELECT COUNT(*) AS `tot_insegnanti`, `teachers`.`office_address` AS `indirizzo`
+FROM `teachers`  
+GROUP BY `teachers`.`office_address`;
+
+3.
+SELECT AVG(`exam_student`.`vote`) AS `voto`, `exams`.`date` AS `data_esame`
+FROM `exam_student`
+JOIN `exams`ON `exam_student`.`exam_id` = `exams`.`id`
+GROUP BY `data_esame`
+
+4.
+SELECT COUNT(*) AS `tot_corsi_laurea`, `departments`.`name` AS `dipartimento`
+FROM `degrees`
+JOIN `departments` ON `departments`.`id` = `degrees`.`department_id`
+GROUP BY `dipartimento`;
+
+
