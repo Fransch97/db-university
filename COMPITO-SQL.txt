@@ -31,16 +31,16 @@ WHERE `cfu`> 10;
 3.a.
 SELECT * 
 FROM `students`
-WHERE `date_of_birth` <= '1992-06-14' 
+WHERE `date_of_birth` <= '1991-06-14' 
 ORDER BY `date_of_birth` DESC; 
 3.b.
 SELECT * 
 FROM `students` 
-WHERE YEAR(CURRENT_DATE()) - YEAR(`date_of_birth`) >= 30
+WHERE YEAR(CURRENT_DATE()) - YEAR(`date_of_birth`) > 30
 3.c.
 SELECT * 
 FROM `students` 
-  WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURRENT_DATE()) >= 30; 
+  WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURRENT_DATE()) > 30; 
 
 
 
@@ -65,7 +65,7 @@ WHERE `date` = '2020-06-20' AND `hour` > '14:00:00'
 5.b.
 SELECT *
 FROM `exams` 
-WHERE `date` = '2020-06-20' AND TIME(`hour`) > '14:00:00';
+WHERE `date` = '2020-06-20' AND TIME(`hour`) > 14;
 
 
 6.Selezionare tutti i corsi di laurea magistrale
